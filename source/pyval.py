@@ -11,7 +11,7 @@ def eval_expression_of_x(x: str):
     elif not any(sub_str in ["+", "-", "*", "/", "%", "//", "**"] for sub_str in expression):
         return 0
 
-    # Everything should be secure.
+    # Everything should be securely parsed.
     try:
         return eval(expression)
     except:
@@ -35,7 +35,7 @@ def eval_arithmetic(expression: str):
     elif not any(sub_str in ["+", "-", "*", "/", "%", "//", "**"] for sub_str in expression):
         return 0
 
-    # Everything should be secure.
+    # Everything should be securely parsed.
     try:
         return eval(expression)
     except:
