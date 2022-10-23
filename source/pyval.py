@@ -1,4 +1,4 @@
-def eval_expression_of_x(x: str): -> 
+def eval_expression_of_x(x: str) -> float: 
     # Block due to presence of some special characters.
     if any(sub_chr in [":", "="] for sub_chr in expression):
         return None
@@ -18,7 +18,7 @@ def eval_expression_of_x(x: str): ->
         raise ArithmeticError("Invalid expression.")
 
 	
-def eval_arithmetic(expression: str):
+def eval_arithmetic(expression: str) -> float:
     # Block due to numeric absence.
     if not any(char.isdigit() for char in expression):
         return None
