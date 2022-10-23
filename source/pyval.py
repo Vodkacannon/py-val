@@ -1,6 +1,6 @@
 def eval_expression_of_x(x: str):
     # Block due to presence of some special characters.
-    elif any(sub_chr in [":", "="] for sub_chr in expression):
+    if any(sub_chr in [":", "="] for sub_chr in expression):
         return 0
 	
     # Block non-'x' letters.
@@ -39,4 +39,4 @@ def eval_arithmetic(expression: str):
     try:
         return eval(expression)
     except:
-        raise ArithmeticError("Invalid expression.")
+        raise ArithmeticError("Invalid arithmetic.")
