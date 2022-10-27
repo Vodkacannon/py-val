@@ -1,4 +1,4 @@
-def eval_expression_of_x(expression: str) -> float: 
+def eval_expression_of_x(expression: str, x: float) -> float: 
     # Block due to presence of some special characters.
     if any(sub_chr in [":", "="] for sub_chr in expression):
         return None
