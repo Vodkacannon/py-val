@@ -42,16 +42,11 @@ def eval_arithmetic(expression: str) -> float:
         raise ArithmeticError("Invalid arithmetic.")
 
 	
-# Eval Integral.
-'''
-Float based iterator.
-'''
-def float_range(start: float, stop: float, increment: float) -> float:
-    while start < stop:
-        yield start
-        start += increment
 
 
+'''
+A single variable differentiator.
+'''
 def differentiate(python_expression: str, x: float, infinitesimal: float) -> float:
     x += infinitesimal
     f_x_plus_h = eval(python_expression)
@@ -62,6 +57,16 @@ def differentiate(python_expression: str, x: float, infinitesimal: float) -> flo
     return (f_x_plus_h - f_x) / infinitesimal
     
 
+# Eval Integral.
+'''
+Float based iterator.
+'''
+def float_range(start: float, stop: float, increment: float) -> float:
+    while start < stop:
+        yield start
+        start += increment	
+
+	
 def riemann_sum_partial(python_expression: str, x: float, infinitesimal: float) -> float:
     return eval_expression_of_x(python_expression) * infinitesimal
 
