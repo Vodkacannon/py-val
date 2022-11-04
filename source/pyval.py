@@ -4,7 +4,7 @@ def eval_expression_of_x(expression: str, x: float) -> float:
         return None
 	
     # Block non-'x' letters.
-    elif any((char.isalpha() || char != 'x') for char in expression):
+    elif any((char.isalpha() or char != 'x') for char in expression):
         return None
 		
     # Block due to operator absence.
