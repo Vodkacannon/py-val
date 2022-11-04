@@ -52,7 +52,17 @@ def float_range(start: float, stop: float, increment: float) -> float:
         start += increment
 
 
-def riemann_sum_partial(python_expression: str, x: float, infinitesimal) -> float:
+def differentiate(python_expression: str, x: float, infinitesimal: float) -> float:
+    x += infinitesimal
+    f_x_plus_h = eval(python_expression)
+
+    x -= infinitesimal
+    f_x = eval(python_expression)
+    
+    return (f_x_plus_h - f_x) / infinitesimal
+    
+
+def riemann_sum_partial(python_expression: str, x: float, infinitesimal: float) -> float:
     return eval_expression_of_x(python_expression) * infinitesimal
 
 
