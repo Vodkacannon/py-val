@@ -52,7 +52,7 @@ def eval_arithmetic(expression: str) -> float:
 '''
 A single variable differentiator.
 '''
-def differentiate(python_expression: str, x: float, infinitesimal: float) -> float:
+def differentiate(python_expression: str, x: float, infinitesimal: float = 0.001) -> float:
     x += infinitesimal
     f_x_plus_h = eval(python_expression)
 
