@@ -54,13 +54,39 @@ A single variable differentiator.
 '''
 def differentiate(python_expression: str, x: float, infinitesimal: float = 0.001) -> float:
     x += infinitesimal
-    f_x_plus_h = eval(python_expression)
+    f_of_x_plus_h = eval(python_expression)
 
     x -= infinitesimal
-    f_x = eval(python_expression)
+    f_of_x = eval(python_expression)
     
-    return (f_x_plus_h - f_x) / infinitesimal
+    return (f_of_x_plus_h - f_of_x) / infinitesimal
+
+
+'''
+A single variable second order differentiator.
+'''
+def differentiate_second_order(python_expression: str, x: float, infinitesimal: float = 0.001) -> float:
+    x += infinitesimal
+    f_of_x_plus_h = eval(python_expression)
     
+    x -= infinitesimal
+    f_of_x = eval(python_expression)
+    
+    two_times_f_of_x = 2.0 * f_of_x
+
+    x -= infinitesimal
+    f_of_x_minus_h = eval(python_expression)
+
+    return (f_of_x_plus_h - two_times_f_of_x + f_of_x_minus_h) / infinitesimal ** 2
+
+
+'''
+Find the curvature of a function of a single variable.
+'''
+def curvature(python_expression: str, x: float, infinitesimal: float = 0.001) -> float:
+    numerator = abs(differentiate_second_order(python_expression, x, infinitesimal))
+    denominator = (1.0 + differentiate(python_expression, x, infinitesimal) ** 2) ** 1.5
+    return numerator / denominator
 
 
 '''
@@ -69,11 +95,11 @@ Float based iterator.
 def float_range(start: float, stop: float, increment: float) -> float:
     while start < stop:
         yield start
-        start += increment	
+        start += increment
 
-	
+
 def riemann_sum_partial(python_expression: str, x: float, infinitesimal: float) -> float:
-    return eval_expression_of_x(python_expression) * infinitesimal
+    return eval_expression_of_x(python_expression, x) * infinitesimal
 
 
 '''
