@@ -1,3 +1,6 @@
+'''
+Algebraic.
+'''
 def eval_expression_of_x(expression: str, x: float) -> float: 
     # Block due to presence of some special characters.
     if any(sub_chr in [":", "="] for sub_chr in expression):
@@ -17,7 +20,9 @@ def eval_expression_of_x(expression: str, x: float) -> float:
     except:
         raise ArithmeticError("Invalid expression.")
 
-	
+'''
+Non algebraic.
+'''
 def eval_arithmetic(expression: str) -> float:
     # Block due to numeric absence.
     if not any(char.isdigit() for char in expression):
@@ -57,7 +62,7 @@ def differentiate(python_expression: str, x: float, infinitesimal: float) -> flo
     return (f_x_plus_h - f_x) / infinitesimal
     
 
-# Eval Integral.
+
 '''
 Float based iterator.
 '''
@@ -72,7 +77,7 @@ def riemann_sum_partial(python_expression: str, x: float, infinitesimal: float) 
 
 
 '''
-Using a Riemann sum.
+# Eval integral using a Riemann sum.
 '''
 def integrate(python_expression: str, low: float, high: float, infinitesimal: float = 0.001) -> float:
     return sum(riemann_sum_partial(python_expression, x, infinitesimal) for x in float_range(low, high, infinitesimal))
