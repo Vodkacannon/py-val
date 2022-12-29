@@ -20,6 +20,7 @@ def eval_expression_of_x(expression: str, x: float) -> float:
     except:
         raise ArithmeticError("Invalid expression.")
 
+	
 '''
 Non algebraic.
 '''
@@ -45,8 +46,6 @@ def eval_arithmetic(expression: str) -> float:
         return eval(expression)
     except:
         raise ArithmeticError("Invalid arithmetic.")
-
-	
 
 
 '''
