@@ -2,15 +2,15 @@
 def eval_expression_of_x(expression: str, x: float) -> float: 
     # Block due to presence of some special characters.
     if any(sub_chr in [":", "="] for sub_chr in expression):
-        return None
-	
+        return None # type: ignore	
+
     # Block non-'x' letters.
     elif any((char.isalpha() or char != 'x') for char in expression):
-        return None
+        return None # type: ignore	
 		
     # Block due to operator absence.
     elif not any(sub_str in ["+", "-", "*", "/", "%", "//", "**"] for sub_str in expression):
-        return None
+        return None # type: ignore	
 
     # Everything should be securely parsed.
     try:
